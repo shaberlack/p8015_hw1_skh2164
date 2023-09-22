@@ -1,0 +1,24 @@
+---
+title: "p8015_hw1_skh2164"
+author: "Sarah Haberlack"
+date: "2023-09-22"
+output: 
+ github_document:
+   toc: true
+   toc_float: true
+---
+
+```{r weather_df}
+library(moderndive)
+data("early_january_weather")
+early_january_weather
+```
+
+# Dataset Description
+The `early_january_weather` dataset describes the weather at every hour from January 1 to January 15, 2013 in Newark, NJ. It contains variables `origin, year, month, day, hour, temperature, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib,` and `time_hour`. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. The mean temperature of was `r mean(early_january_weather$temp)`.
+
+#Scatterplot
+```{r}
+library(tidyverse)
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+```
