@@ -3,10 +3,9 @@ title: "p8015_hw1_skh2164"
 author: "Sarah Haberlack"
 date: "2023-09-22"
 output: 
- github_document:
-   toc: true
-   toc_float: true
+ github_document
 ---
+# Problem 1
 
 ```{r weather_df}
 library(moderndive)
@@ -14,11 +13,17 @@ data("early_january_weather")
 early_january_weather
 ```
 
-# Dataset Description
-The `early_january_weather` dataset describes the weather at every hour from January 1 to January 15, 2013 in Newark, NJ. It contains variables `origin, year, month, day, hour, temperature, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib,` and `time_hour`. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. The mean temperature of was `r mean(early_january_weather$temp)`.
+The `early_january_weather` dataset describes meteorological conditions at every hour from January 1 to January 15, 2013 in Newark, NJ. It contains variables `origin, year, month, day, hour, temperature, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib,` and `time_hour`. We will primarily be looking at time, temperature and humidity. The dataset has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. The mean temperature of was `r mean(early_january_weather$temp)`. 
 
-#Scatterplot
+## Scatterplot
 ```{r}
 library(tidyverse)
 ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+ggsave("weather_scatter.pdf")
 ```
+
+The scatterplot shows Newark temperature and humidity level for the first 2 week of January. 
+Over this two-week time period, the average daily temperature rises around 15 degrees. 
+We can see that as humidity increases, the daily range of high and low temperatures become much smaller.
+
+# Problem 2
