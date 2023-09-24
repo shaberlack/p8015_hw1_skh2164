@@ -7,7 +7,10 @@ output:
 ---
 # Problem 1
 
+Downloading `early_january_weather` dataset for analysis.
+
 ```{r weather_df}
+library(moderndive)
 data("early_january_weather")
 early_january_weather
 ```
@@ -48,3 +51,5 @@ mean(p2_df$factor_vec)
 ```
 
 When we take the mean of the numerical vector `num_vec` and the logical vector `log_vec`, we get a numerical response--the command functions as intended. However, when we try to take the mean of the character vector `char_vec` and the factor vector `factor_vec`, we received the a warning message that `argument is not numeric or logical: returning NA`. 
+
+Now, let's take the means of each vector as numerical variables.
