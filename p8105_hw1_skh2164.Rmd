@@ -8,7 +8,6 @@ output:
 # Problem 1
 
 ```{r weather_df}
-library(moderndive)
 data("early_january_weather")
 early_january_weather
 ```
@@ -27,3 +26,25 @@ Over this two-week time period, the average daily temperature rises around 15 de
 We can see that as humidity increases, the daily range of high and low temperatures become much smaller.
 
 # Problem 2
+
+## Create dataframe
+
+```{r p2_df}
+p2_df = 
+  tibble(
+    num_vec = rnorm(10),
+    log_vec = num_vec > 0,
+    char_vec = character(length = 10),
+    factor_vec = factor(x = char_vec, 3)
+  )
+```
+
+We will now try to take the means of each variable.
+```{r}
+mean(p2_df$num_vec)
+mean(p2_df$log_vec)
+mean(p2_df$char_vec)
+mean(p2_df$factor_vec)
+```
+
+When we take the mean of the numerical vector `num_vec` and the logical vector `log_vec`, we get a numerical response--the command functions as intended. However, when we try to take the mean of the character vector `char_vec` and the factor vector `factor_vec`, we received the a warning message that `argument is not numeric or logical: returning NA`. 
